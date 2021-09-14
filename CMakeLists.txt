@@ -15,4 +15,8 @@ pico_enable_stdio_usb(ov7670 1)
 
 pico_add_extra_outputs(ov7670)
 
-target_link_libraries(ov7670 pico_stdlib hardware_i2c)
+target_link_libraries(ov7670 pico_stdlib hardware_i2c hardware_gpio)
+
+target_compile_definitions(ov7670 PRIVATE
+	PICO_STDIO_DEFAULT_CRLF=0
+)
